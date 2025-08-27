@@ -1,13 +1,18 @@
 ---
 simd: 'XXXX'
-title: Title of SIMD
+title: Title of SIMD. This should be concise and descriptive.
 authors:
   - (fill in with names of authors)
 category: Standard/Meta
 type: Core/Networking/Interface/Meta
-status: Draft
+status: Idea/Review
 created: (fill me in with today's date, YYYY-MM-DD)
-feature: (fill in with feature tracking issues once accepted)
+feature: (fill in with feature key and github tracking issues once accepted)
+supersedes: (optional - fill this in if the SIMD supersedes a previous SIMD)
+superseded-by: (optional - fill this in if the SIMD is superseded by a subsequent
+ SIMD)
+extends: (optional - fill this in if the SIMD extends the design of a previous
+ SIMD)
 ---
 
 ## Summary
@@ -19,10 +24,15 @@ A brief summary of what the feature is.
 Why are we doing this? What use cases does it support? What is the expected
 outcome?
 
-## Alternatives Considered
+## Dependencies *(Optional)*
 
-What alternative designs were considered and what pros/cons does this feature
-have relative to them?
+This proposal depends on the following previously accepted proposals:
+
+- **[SIMD-XXXX]: Title of SIMD**
+
+    A brief summary of the reason for the dependency
+
+[SIMD-XXXX]: https://github.com/solana-foundation/solana-improvement-documents/pull/XXXX
 
 ## New Terminology
 
@@ -38,6 +48,17 @@ to another Solana core contributor. The generally means:
 - How this feature was/could be implemented
 - Interaction with other features
 - Edge cases
+
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
+"SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this
+document are to be interpreted as described in [RFC
+2119](https://www.ietf.org/rfc/rfc2119.txt) and [RFC
+8174](https://www.ietf.org/rfc/rfc8174.txt).
+
+## Alternatives Considered
+
+What alternative designs were considered and what pros/cons does this feature
+have relative to them?
 
 ## Impact
 

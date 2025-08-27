@@ -7,9 +7,9 @@ export const enforceHeaderStructure = {
   tags: ["structure"],
   function: function rule(params: RuleParams, onError: RuleOnError) {
     const string = params.frontMatterLines
-    .join("\n")
-    .trim()
-    .replace(/^-*$/gm, "")
+      .join("\n")
+      .trim()
+      .replace(/^-*$/gm, "")
 
     const frontMatter: any = yaml.load(string)
     if (!frontMatter) return
@@ -30,11 +30,11 @@ export const enforceHeaderStructure = {
 
     let tempHeadings = expectedHeadings;
 
-    while (index < expectedHeadings.length) {
+    while (index < filtered.length) {
       let token = filtered[index]
       tempHeadings = tempHeadings.filter(item => item !== token.line)
 
-      if (index + 1 >= filtered.length) {
+      if (index >= filtered.length) {
         onError({
           lineNumber: 1,
           detail: `Expected heading \`${tempHeadings[0]}\` and none exists. Please follow the structure outlined in the Proposal Template.`,
@@ -99,7 +99,7 @@ export const enforceMetadataStructure = {
     })
 
     Object.keys(frontMatter).forEach((key) => {
-      if (!(requiredMetadata as any)[key] && !(optionalMetadata as any)[key]) {
+      if (!(requiredMetadata as any)[key] && !optionalMetadata.includes(key)) {
         onError({
           lineNumber: 1,
           detail: `Front matter contains invalid metadata \`${key}\``,
@@ -119,9 +119,13 @@ const requiredMetadata = {
   created: {},
 }
 
-const optionalMetadata = {
-  feature: {},
-}
+const optionalMetadata = [
+  "feature",
+  "supersedes",
+  "superseded-by",
+  "extends",
+  "development",
+]
 
 export const metadataSimdIsValid = {
   names: ["front-matter-has-simd"],
@@ -278,12 +282,13 @@ export const metadataStatusIsValid = {
 
     const validStatus = [
       "Idea",
-      "Draft",
       "Review",
       "Accepted",
       "Stagnant",
       "Withdrawn",
       "Implemented",
+      "Activated",
+      "Living"
     ]
 
     if (!validStatus.includes(status)) {

@@ -5,9 +5,10 @@ authors:
   - Haoran Yi (Solana Labs)
 category: Standard
 type: Core
-status: Draft
+status: Withdrawn
 created: 2023-03-02
-feature: (fill in with feature tracking issues once accepted)
+feature: N/A
+superseded-by: '0118'
 ---
 
 ## Summary
