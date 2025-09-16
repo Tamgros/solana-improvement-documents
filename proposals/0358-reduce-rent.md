@@ -71,7 +71,9 @@ with Related SIMDs
 
 ## Impact
 
-How will the implemented proposal impacts dapp developers, validators, and core contributors?
+Beyond the obvious reduced friction, this will allow us to understand the elasticity of demand for rent. There are certainly some confounding variables, but incrementally reducing rent will give us some indication on how much it affects account creation relative to other activity on chain
+
+This incremental approach will also allow us to minimize impact of users rushing to dealocate and realocate as users will do this more gadually than with one big change. We can also assess how much this disruption this may cause with the initial changes.
 
 ## Security Considerations
 
